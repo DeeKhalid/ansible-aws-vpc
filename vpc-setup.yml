@@ -15,8 +15,8 @@
          tenancy: default
          state: "{{state}}"
 
-
-    - debug:
+    - name: Debug VPC Output
+      debug:
         var: vpcout
 
     - name: Create Public Subnet 1 in Zone1
