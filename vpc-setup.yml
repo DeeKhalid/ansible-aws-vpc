@@ -15,7 +15,7 @@
          tenancy: default
          state: "{{state}}"
 
-    - name: Debug vpcout variable
+    - name: Debug VPC Output
       debug:
         var: vpcout
 
