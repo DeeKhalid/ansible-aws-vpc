@@ -17,7 +17,7 @@
 
 
     - debug:
-        var:vpcout
+        var: vpcout
 
     - name: create Public subnet 1 in Zone1
       ec2_vpc_subnet:
