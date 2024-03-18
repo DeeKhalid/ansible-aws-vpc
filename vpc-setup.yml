@@ -46,7 +46,7 @@
         region: "{{region}}"
         az: "{{Zone2b}}"
         state: "{{state}}"
-        cidr: "{{PubSub2Cidr}}"
+        cidr: "{{PubSub2bCidr}}"
         map_public: yes
         resource_tags:
           Name: vprofile_pubsub2
