@@ -14,14 +14,19 @@
          dns_hostnames: yes
          tenancy: default
          state: "{{state}}"
+      register: vpc_creation_result
 
-    - name: Debug VPC Output
+    - name: Debug VPC creation Output
       debug:
         var: vpc_creation_result
 
     - name: Set vpcout Variable
       set_fact:
         vpcout: "{{ vpc_creation_result}}"
+
+    - name: debug vpcout Variable
+      debug:
+        var: vpcout
 
     - name: Create Public Subnet 1 in Zone1
       ec2_vpc_subnet:
