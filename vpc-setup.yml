@@ -5,7 +5,7 @@
     - name: Import VPC Variables
       include_vars: vars/vpc_setup
 
-    - name: Create vprofile VPC
+    - name: Create profile VPC
       ec2_vpc_net:
          name: "{{vpc_name}}"
          cidr_block: "{{ vpcCidr }}"
@@ -99,6 +99,20 @@
         resource_tags:
           Name: vprofile_prisub3
       register: prisub3_out
+
+    - name: Internet Gateway setup
+      ec2_vpc_igw:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state:  "{{state}}"
+        resource_tags:
+          Name: vprofile_IGW
+        register: igw_out
+
+
+
+
+
 
 
 
