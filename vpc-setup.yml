@@ -150,7 +150,20 @@
             gateway_id: "{{nat_gateway_variable.nat_gateway.id}}"
       when: nat_gateway_variable is defined and nat_gateway_variable.nat_gateway is defined
 
-
+    - debug:
+        var: "{{item}}"
+      loop:
+        - vpcout.vpc.id
+        - pubsub1_out.subnet.id
+        - pubsub2_out.subnet.id
+        - pubsub3_out.subnet.id
+        - prisub1_out.subnet.id
+        - prisub2_out.subnet.id
+        - prisub3_out.subnet.id
+        - igw_out.gateway.id
+        - pubRT_out.route_table.id
+        - NATGW_out.nat_gateway_id
+        - priRT_out.route_table.id
 
 
 
