@@ -126,14 +126,14 @@
       register: pubRT_out
 
     - name: Create new nat gateway and allocate new EIP if a nat gateway does not yet exist in the subnet
-      community.aws.ec2_vpc_nat_gateway:
+      ec2_vpc_nat_gateway:
         state: "{{state}}"
         subnet_id: "{{pubsub1_out.subnet.id}}"
         wait: yes
         region: "{{region}}"
         if_exist_do_not_create: true
-      register: nat_gateway_result
-      ignore_errors: true
+      register: NATGW_out
+
 
     - name: Set up Private subnet route table
       ec2_vpc_route_table:
@@ -147,8 +147,8 @@
           - "{{prisub3_out.subnet.id}}"
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{nat_gateway_result.nat_gateway.id}}"
-      when: nat_gateway_result is defined and nat_gateway_result.changed
+            gateway_id: "{{NATGW_out.nat_gateway.id}}"
+      register: priRT_out
 
 
 
