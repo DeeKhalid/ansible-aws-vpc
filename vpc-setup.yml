@@ -125,7 +125,7 @@
 
       register: pubRT_out
 
-    - name: Create new nat gateway and allocate new EIP
+    - name: Create new nat gateway and allocate new Elastic IP if it does not exist
       community.aws.ec2_vpc_nat_gateway:
       ec2 _vpc_nat_gateway:
         state: "{{state}}"
