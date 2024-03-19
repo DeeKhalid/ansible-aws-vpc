@@ -125,8 +125,8 @@
 
       register: pubRT_out
 
-    - name: Create new nat gateway and allocate new Elastic IP if it does not exist
-      community.aws.ec2_vpc_nat_gateway:
+    - name: Create new nat gateway and allocate new EIP if a nat gateway does not yet exist in the subnet
+      ec2_vpc_nat_gateway:
         state: "{{state}}"
         subnet_id: "{{pubsub1_out.subnet.id}}"
         wait: yes
