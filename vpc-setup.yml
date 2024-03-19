@@ -147,8 +147,8 @@
           - "{{prisub3_out.subnet.id}}"
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{NATGW_out.nat_gateway.id}}"
-      register: priRT_out
+            gateway_id: "{{nat_gateway_variable.nat_gateway.id}}"
+      when: nat_gateway_variable is defined and nat_gateway_variable.nat_gateway is defined
 
 
 
