@@ -127,7 +127,6 @@
 
     - name: Create new nat gateway and allocate new Elastic IP if it does not exist
       community.aws.ec2_vpc_nat_gateway:
-      ec2 _vpc_nat_gateway:
         state: "{{state}}"
         subnet_id: "{{pubsub1_out.subnet.id}}"
         wait: yes
