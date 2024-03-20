@@ -163,7 +163,7 @@
         - igw_out.gateway.id
         - pubRT_out.route_table.id
         - NATGW_out.nat_gateway_id
-        - priRT_out.route_table.id
+
 
     - set_fact:
         vpcid: "{{vpcout.vpc.id}}"
@@ -176,7 +176,6 @@
         igwid: "{{igw_out.gateway_id}}"
         pubRTid: "{{pubRT_out.route_table.id}}"
         NATGWid: "{{NATGW_out.nat_gateway_id}}"
-        priRTid: "{{priRT_out.route_table.id}}"
         cacheable: yes
 
     - name: Create Variables file for vpc output
@@ -192,7 +191,7 @@
           igwid: {{igw_out.gateway_id}}
           pubRTid: {{pubRT_out.route_table.id}}
           NATGWid: {{NATGW_out.nat_gateway_id}}
-          priRTid: {{priRT_out.route_table.id}}
+
         dest: vars/output_vars
       when:
         - vpcout is defined
@@ -205,4 +204,3 @@
         - igw_out is defined
         - pubRT_out is defined
         - NATGW_out is defined
-        - priRT_out is defined
