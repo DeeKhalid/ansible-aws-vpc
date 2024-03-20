@@ -194,11 +194,15 @@
           NATGWid: {{NATGW_out.nat_gateway_id}}
           priRTid: {{priRT_out.route_table.id}}
         dest: vars/output_vars
-
-
-
-
-
-
-
-
+      when:
+        - vpcout is defined
+        - pubsub1_out is defined
+        - pubsub2_out is defined
+        - pubsub3_out is defined
+        - prisub1_out is defined
+        - prisub2_out is defined
+        - prisub3_out is defined
+        - igw_out is defined
+        - pubRT_out is defined
+        - NATGW_out is defined
+        - priRT_out is defined
